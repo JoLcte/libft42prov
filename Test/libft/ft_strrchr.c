@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 13:57:13 by JoLecomte         #+#    #+#             */
-/*   Updated: 2020/11/17 00:46:02 by JoLecomte        ###   ########.fr       */
+/*   Created: 2020/11/15 15:59:56 by JoLecomte         #+#    #+#             */
+/*   Updated: 2020/11/15 20:07:25 by JoLecomte        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memrchr(const void *s, int c, size_t n)
 {
-	unsigned char *p;
+	unsigned char *p_str;
 
-	p = (unsigned char *)s;
+	p_str = (unsigned char *)s;
 	while (n--)
-		*p++ = 0;
+	{
+		if (*p_str-- == (unsigned char)c)
+			return (p_str + 1);
+	}
+	return (NULL);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t i;
+	size_t len;
+
+	i = 0;
+	len = ft_strlen(s);
+	while (i++ < len)
+		s++;
+	return (ft_memrchr(s, c, len + 1));
 }

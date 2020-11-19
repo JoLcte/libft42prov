@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 13:57:13 by JoLecomte         #+#    #+#             */
-/*   Updated: 2020/11/17 00:46:02 by JoLecomte        ###   ########.fr       */
+/*   Created: 2020/11/13 14:59:23 by JoLecomte         #+#    #+#             */
+/*   Updated: 2020/11/13 15:09:22 by JoLecomte        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	unsigned char *p;
+	size_t count;
 
-	p = (unsigned char *)s;
-	while (n--)
-		*p++ = 0;
+	count = 0;
+	while (*s++)
+		count++;
+	return (count);
 }

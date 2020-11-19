@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 13:57:13 by JoLecomte         #+#    #+#             */
-/*   Updated: 2020/11/17 00:46:02 by JoLecomte        ###   ########.fr       */
+/*   Created: 2020/11/15 20:11:12 by JoLecomte         #+#    #+#             */
+/*   Updated: 2020/11/16 01:58:17 by JoLecomte        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char *p;
-
-	p = (unsigned char *)s;
-	while (n--)
-		*p++ = 0;
+	while (n-- && *s1++ == *s2++ && *s1)
+		;
+	return ((unsigned char)*(s1 - 1) - (unsigned char)*(s2 - 1));
 }
