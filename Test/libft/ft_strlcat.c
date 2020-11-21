@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+        */
+/*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 16:56:48 by JoLecomte         #+#    #+#             */
-/*   Updated: 2020/11/17 23:02:21 by JoLecomte        ###   ########.fr       */
+/*   Created: 2020/11/19 18:05:32 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/20 13:15:53 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t max_size)
 	if (max_size == 0 || len_dst >= max_size)
 		return (len_src + max_size);
 	max_size -= (len_dst + 1);
-	while (*dst++)
-		;
-	dst--;
+	while (*dst)
+		dst++;
 	while (*src && max_size--)
 		*dst++ = *src++;
 	*dst = '\0';

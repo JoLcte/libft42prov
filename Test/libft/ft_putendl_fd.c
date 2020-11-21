@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 18:04:10 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/19 18:04:12 by jlecomte         ###   ########.fr       */
+/*   Created: 2020/11/21 18:19:58 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/21 18:22:50 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned const char	*p_src;
-	unsigned char		*p_dst;
-
-	p_dst = (unsigned char *)dst;
-	p_src = (unsigned const char *)src;
-	while (n--)
-	{
-		if ((*p_dst++ = *p_src++) == (unsigned char)c)
-			return ((void *)p_dst);
-	}
-	return (NULL);
+	if (!s)
+		return ;
+	while (*s)
+		write(fd, &*s++, 1);
+	write(fd, "\n", 1);
 }

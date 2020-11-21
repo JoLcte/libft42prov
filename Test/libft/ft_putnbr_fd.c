@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 18:04:10 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/19 18:04:12 by jlecomte         ###   ########.fr       */
+/*   Created: 2020/11/21 18:24:51 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/21 21:04:09 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned const char	*p_src;
-	unsigned char		*p_dst;
+	long int nb;
 
-	p_dst = (unsigned char *)dst;
-	p_src = (unsigned const char *)src;
-	while (n--)
+	nb = n;
+	if (nb < 0)
 	{
-		if ((*p_dst++ = *p_src++) == (unsigned char)c)
-			return ((void *)p_dst);
+		ft_putchar_fd('-', fd);
+		nb *= -1;
 	}
-	return (NULL);
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd(nb % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(nb % 10 + '0', fd);
 }

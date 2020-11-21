@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+         #
+#    By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/11 18:12:27 by JoLecomte         #+#    #+#              #
-#    Updated: 2020/11/19 10:53:34 by JoLecomte        ###   ########.fr        #
+#    Created: 2020/11/19 17:58:56 by jlecomte          #+#    #+#              #
+#    Updated: 2020/11/21 20:57:20 by jlecomte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,19 @@ SRCS = ft_memset.c \
 	ft_strlcpy.c \
 	ft_strlcat.c \
 	ft_strnstr.c \
+	ft_atoi.c \
+	ft_calloc.c \
+	ft_strdup.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -54,7 +67,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean
-	all
+re: fclean all
 
 .PHONY: all clean fclean re

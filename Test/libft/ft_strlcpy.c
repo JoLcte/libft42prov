@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JoLecomte <jlecomte@student.42.fr>         +#+  +:+       +#+        */
+/*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 12:03:49 by JoLecomte         #+#    #+#             */
-/*   Updated: 2020/11/18 21:14:48 by JoLecomte        ###   ########.fr       */
+/*   Created: 2020/11/19 18:05:46 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/21 21:05:48 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t max_size)
 {
 	size_t len_src;
 
+	if (!dst || !src)
+		return (0);
 	len_src = ft_strlen(src);
 	if (len_src < max_size)
 		ft_memcpy(dst, src, len_src + 1);

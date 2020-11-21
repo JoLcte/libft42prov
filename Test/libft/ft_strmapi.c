@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 18:04:10 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/19 18:04:12 by jlecomte         ###   ########.fr       */
+/*   Created: 2020/11/21 17:33:31 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/21 21:08:17 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned const char	*p_src;
-	unsigned char		*p_dst;
+	char	*p;
+	size_t	i;
 
-	p_dst = (unsigned char *)dst;
-	p_src = (unsigned const char *)src;
-	while (n--)
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (!(p = (char *)malloc(ft_strlen(s) + 1)))
+		return (NULL);
+	while (s[i])
 	{
-		if ((*p_dst++ = *p_src++) == (unsigned char)c)
-			return ((void *)p_dst);
+		p[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	p[i] = '\0';
+	return (p);
 }
