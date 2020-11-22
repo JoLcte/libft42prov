@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 18:06:32 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/23 00:43:16 by jlecomte         ###   ########.fr       */
+/*   Created: 2020/11/22 20:32:47 by jlecomte          #+#    #+#             */
+/*   Updated: 2020/11/22 23:38:05 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!n)
-		return (0);
-	while (n-- && *s1 == *s2)
+	t_list *new;
+	t_list *begin;
+
+	if (!lst || !f)
+		return (NULL);
+	if (!(begin = ft_lstnew(f(lst->content))))
+		return (NULL);
+	new = begin;
+	lst = lst->next;
+	while (lst)
 	{
-		if (!n || !*s1)
-			return (0);
-		s1++;
-		s2++;
+		if (!(new->next = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&begin, del);
+			return (NULL);
+		}
+		new = new->next;
+		lst = lst->next;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (begin);
 }

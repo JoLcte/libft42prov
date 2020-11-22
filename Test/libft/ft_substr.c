@@ -6,7 +6,7 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:12:41 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/21 21:06:56 by jlecomte         ###   ########.fr       */
+/*   Updated: 2020/11/22 23:58:21 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	len_s = ft_strlen(s);
-	if (start >= len_s)
-		return (NULL);
 	if (len > len_s - start)
 		len = len_s - start;
-	if (!(p = (char *)malloc(len + 1)))
+	p = (char *)malloc(len + 1);
+	if (!p)
 		return (NULL);
 	ft_memcpy(p, s + start, len);
 	p[len] = '\0';
