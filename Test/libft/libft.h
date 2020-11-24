@@ -6,7 +6,7 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 17:59:41 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/22 23:37:43 by jlecomte         ###   ########.fr       */
+/*   Updated: 2020/11/24 17:50:51 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct	s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
-}		t_list;
+}				t_list;
 
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
