@@ -6,13 +6,12 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:26:03 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/21 21:19:45 by jlecomte         ###   ########.fr       */
+/*   Updated: 2021/01/09 14:35:50 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static int		in_set(char const *set, char c)
 {
