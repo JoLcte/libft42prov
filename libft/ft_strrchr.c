@@ -6,13 +6,13 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:07:02 by jlecomte          #+#    #+#             */
-/*   Updated: 2021/01/09 14:29:02 by jlecomte         ###   ########.fr       */
+/*   Updated: 2021/01/10 11:44:29 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memrchr(const void *s, int c, size_t n)
+static void	*ft_memrchr(const void *s, int c, size_t n)
 {
 	unsigned char *p_str;
 
@@ -25,7 +25,7 @@ void	*ft_memrchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char		*ft_strrchr(const char *s, int c)
 {
 	const size_t	len = ft_strlen(s);
 
