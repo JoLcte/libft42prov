@@ -6,7 +6,7 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:56:56 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/21 21:21:38 by jlecomte         ###   ########.fr       */
+/*   Updated: 2021/01/10 11:48:56 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	len_nb(long int n)
 	return (len);
 }
 
-static char		*ft_putchar(long int n, size_t len, char *s)
+static char		*nb_print(long int n, size_t len, char *s)
 {
 	if (n == 0)
 		*s = '0';
@@ -63,6 +63,6 @@ char			*ft_itoa(int n)
 		len = len_nb(nb);
 	if (!(s = (char *)malloc(len + 1)))
 		return (NULL);
-	s = ft_putchar(nb, len, s);
+	s = nb_print(nb, len, s);
 	return (s);
 }
