@@ -6,7 +6,7 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:05:04 by jlecomte          #+#    #+#             */
-/*   Updated: 2021/01/13 13:26:02 by jlecomte         ###   ########.fr       */
+/*   Updated: 2021/01/13 13:59:00 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*s++ == c)
-			return ((char *)s - 1);
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
 	if (c == 0)
 		return ((char *)s);
