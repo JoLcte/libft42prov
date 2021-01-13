@@ -6,7 +6,7 @@
 /*   By: jlecomte <jlecomte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:05:04 by jlecomte          #+#    #+#             */
-/*   Updated: 2020/11/19 18:05:07 by jlecomte         ###   ########.fr       */
+/*   Updated: 2021/01/13 13:26:02 by jlecomte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t len;
-
-	len = ft_strlen(s) + 1;
-	return (ft_memchr(s, c, len));
+	while (*s)
+	{
+		if (*s++ == c)
+			return ((char *)s - 1);
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
 }
